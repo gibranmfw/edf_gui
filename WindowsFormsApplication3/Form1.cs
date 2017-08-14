@@ -23,7 +23,7 @@ namespace WindowsFormsApplication3
         public Form1()
         {
             InitializeComponent();
-
+            rocketobj.InitializeComponent();
         }
 
         //Mengolah data yang di dapat dari IMU
@@ -33,15 +33,14 @@ namespace WindowsFormsApplication3
             float pitch = (float) Formula.calculatePitch(ax, ay, az);
             float yaw = (float) Formula.calculateYaw(ax, ay, az);
 
-            userControl11.updateAxis(pitch, yaw, roll);
-            userControl11.start();
+            rocketobj.move(roll, pitch, yaw);
             showResult(roll, pitch, yaw);
         }
 
         //Menghentikan Model 3D
         public void stop3D()
         {
-            userControl11.stop();
+            rocketobj.stop();
         }
 
         //buat menampilkan data sensor
@@ -61,6 +60,7 @@ namespace WindowsFormsApplication3
             artificialHorizon1.pitch_angle = pitch;
             chart1.Series["Pitch"].Points.AddY(pitch);
         }
+
 
         private void elementHost2_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {

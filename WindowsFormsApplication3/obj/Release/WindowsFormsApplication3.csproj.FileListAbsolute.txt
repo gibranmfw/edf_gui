@@ -1,0 +1,5 @@
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Release\WindowsFormsApplication3.exe.config
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\UserControl1.g.cs
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\UserControl2.g.cs
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\WindowsFormsApplication3_MarkupCompile.cache
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Release\WindowsFormsApplication3_MarkupCompile.lref

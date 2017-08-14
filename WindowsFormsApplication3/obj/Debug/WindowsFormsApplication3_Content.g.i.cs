@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/button%20on%20off2.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("artificialhorizon.exe")]
 
 

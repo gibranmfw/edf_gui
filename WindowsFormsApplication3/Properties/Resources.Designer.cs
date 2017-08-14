@@ -65,7 +65,7 @@ namespace WindowsFormsApplication3.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap button_on_off2 {
             get {
-                object obj = ResourceManager.GetObject("button on off2", resourceCulture);
+                object obj = ResourceManager.GetObject("button_on_off2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace WindowsFormsApplication3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap GROUND_CONTROL_STATION__1_ {
+        internal static System.Drawing.Bitmap GROUND_CONTROL_STATION {
             get {
-                object obj = ResourceManager.GetObject("GROUND CONTROL STATION (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("GROUND_CONTROL_STATION", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +223,9 @@ namespace WindowsFormsApplication3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap revisi_logo_roket1 {
+        internal static System.Drawing.Bitmap revisi_logo_roket {
             get {
-                object obj = ResourceManager.GetObject("revisi logo roket1", resourceCulture);
+                object obj = ResourceManager.GetObject("revisi_logo_roket", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -235,7 +235,7 @@ namespace WindowsFormsApplication3.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap revisi_logo_roket2 {
             get {
-                object obj = ResourceManager.GetObject("revisi logo roket2", resourceCulture);
+                object obj = ResourceManager.GetObject("revisi_logo_roket2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -286,16 +286,6 @@ namespace WindowsFormsApplication3.Properties {
         internal static System.Drawing.Bitmap zoom_in {
             get {
                 object obj = ResourceManager.GetObject("zoom_in", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap zoom_in_copy {
-            get {
-                object obj = ResourceManager.GetObject("zoom_in copy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

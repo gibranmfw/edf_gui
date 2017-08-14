@@ -48,12 +48,13 @@ namespace WindowsFormsApplication3
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.artificialHorizon1 = new ArtificialHorizon.ArtificialHorizon();
             this.aGauge2 = new System.Windows.Forms.AGauge();
             this.aGauge1 = new System.Windows.Forms.AGauge();
             this.aGauge3 = new System.Windows.Forms.AGauge();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
+            this.rocketobj = new WindowsFormsApplication3.UserControl2();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -61,10 +62,9 @@ namespace WindowsFormsApplication3
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.artificialHorizon1 = new ArtificialHorizon.ArtificialHorizon();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
-            this.userControl11 = new WindowsFormsApplication3.UserControl1();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -152,20 +152,6 @@ namespace WindowsFormsApplication3
             this.textBox7.TabIndex = 17;
             this.textBox7.Text = "Pitch";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // artificialHorizon1
-            // 
-            this.artificialHorizon1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.artificialHorizon1.AutoScroll = true;
-            this.artificialHorizon1.BackColor = System.Drawing.Color.Black;
-            this.artificialHorizon1.Location = new System.Drawing.Point(35, 51);
-            this.artificialHorizon1.Name = "artificialHorizon1";
-            this.artificialHorizon1.pitch_angle = 0D;
-            this.artificialHorizon1.roll_angle = 0D;
-            this.artificialHorizon1.Size = new System.Drawing.Size(211, 425);
-            this.artificialHorizon1.TabIndex = 19;
             // 
             // aGauge2
             // 
@@ -311,7 +297,7 @@ namespace WindowsFormsApplication3
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(16, 26);
+            this.chart1.Location = new System.Drawing.Point(3, 26);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -331,7 +317,7 @@ namespace WindowsFormsApplication3
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(534, 457);
+            this.chart1.Size = new System.Drawing.Size(535, 457);
             this.chart1.TabIndex = 23;
             this.chart1.Text = "chart1";
             // 
@@ -355,6 +341,17 @@ namespace WindowsFormsApplication3
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(445, 495);
             this.tableLayoutPanel1.TabIndex = 26;
+            // 
+            // elementHost2
+            // 
+            this.elementHost2.BackColor = System.Drawing.Color.DimGray;
+            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost2.Location = new System.Drawing.Point(225, 250);
+            this.elementHost2.Name = "elementHost2";
+            this.elementHost2.Size = new System.Drawing.Size(217, 242);
+            this.elementHost2.TabIndex = 30;
+            this.elementHost2.Text = "elementHost2";
+            this.elementHost2.Child = this.rocketobj;
             // 
             // panel2
             // 
@@ -447,8 +444,8 @@ namespace WindowsFormsApplication3
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.BackColor = System.Drawing.Color.Black;
-            this.splitContainer2.Panel1.Controls.Add(this.textBox8);
             this.splitContainer2.Panel1.Controls.Add(this.artificialHorizon1);
+            this.splitContainer2.Panel1.Controls.Add(this.textBox8);
             // 
             // splitContainer2.Panel2
             // 
@@ -458,6 +455,16 @@ namespace WindowsFormsApplication3
             this.splitContainer2.Size = new System.Drawing.Size(847, 513);
             this.splitContainer2.SplitterDistance = 280;
             this.splitContainer2.TabIndex = 24;
+            // 
+            // artificialHorizon1
+            // 
+            this.artificialHorizon1.AutoScroll = true;
+            this.artificialHorizon1.Location = new System.Drawing.Point(22, 51);
+            this.artificialHorizon1.Name = "artificialHorizon1";
+            this.artificialHorizon1.pitch_angle = 0D;
+            this.artificialHorizon1.roll_angle = 0D;
+            this.artificialHorizon1.Size = new System.Drawing.Size(232, 432);
+            this.artificialHorizon1.TabIndex = 30;
             // 
             // textBox8
             // 
@@ -485,17 +492,6 @@ namespace WindowsFormsApplication3
             this.textBox9.Text = "Graph";
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // elementHost2
-            // 
-            this.elementHost2.BackColor = System.Drawing.Color.Black;
-            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost2.Location = new System.Drawing.Point(225, 250);
-            this.elementHost2.Name = "elementHost2";
-            this.elementHost2.Size = new System.Drawing.Size(217, 242);
-            this.elementHost2.TabIndex = 30;
-            this.elementHost2.Text = "elementHost2";
-            this.elementHost2.Child = this.userControl11;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,7 +501,7 @@ namespace WindowsFormsApplication3
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "GroundFak";
+            this.Text = "ATRAMAKARA UI";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -546,7 +542,6 @@ namespace WindowsFormsApplication3
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
-        private ArtificialHorizon.ArtificialHorizon artificialHorizon1;
         private System.Windows.Forms.AGauge aGauge1;
         private System.Windows.Forms.AGauge aGauge3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
@@ -561,7 +556,8 @@ namespace WindowsFormsApplication3
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Integration.ElementHost elementHost2;
-        private UserControl1 userControl11;
+        private UserControl2 rocketobj;
+        private ArtificialHorizon.ArtificialHorizon artificialHorizon1;
     }
 }
 

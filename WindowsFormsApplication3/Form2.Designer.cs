@@ -30,19 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.connectButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.baudRateComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.portComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.statusBox = new System.Windows.Forms.ToolStripTextBox();
-            this.motorButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.MotorDownButton = new System.Windows.Forms.ToolStripButton();
-            this.MotorUpButton = new System.Windows.Forms.ToolStripButton();
-            this.parachuteButton = new System.Windows.Forms.ToolStripButton();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.tabData = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -66,11 +53,9 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.connect_button = new System.Windows.Forms.ToolStripButton();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStrip1.SuspendLayout();
             this.tabData.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip8.SuspendLayout();
-            this.panelData.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -83,136 +68,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.connectButton,
-            this.toolStripSeparator3,
-            this.baudRateComboBox,
-            this.portComboBox,
-            this.progressBar,
-            this.statusBox,
-            this.motorButton,
-            this.toolStripSeparator1,
-            this.toolStripSeparator2,
-            this.MotorDownButton,
-            this.MotorUpButton,
-            this.parachuteButton});
-            this.toolStrip1.Location = new System.Drawing.Point(363, 69);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(853, 25);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // connectButton
-            // 
-            this.connectButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.connectButton.Image = global::WindowsFormsApplication3.Properties.Resources.disconnect;
-            this.connectButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(23, 22);
-            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // baudRateComboBox
-            // 
-            this.baudRateComboBox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.baudRateComboBox.Items.AddRange(new object[] {
-            "9600",
-            "115200"});
-            this.baudRateComboBox.Margin = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.baudRateComboBox.Name = "baudRateComboBox";
-            this.baudRateComboBox.Size = new System.Drawing.Size(121, 25);
-            this.baudRateComboBox.Text = "Baud Rate";
-            // 
-            // portComboBox
-            // 
-            this.portComboBox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.portComboBox.Name = "portComboBox";
-            this.portComboBox.Size = new System.Drawing.Size(121, 25);
-            this.portComboBox.Text = "Port Available";
-            // 
-            // progressBar
-            // 
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(150, 22);
-            // 
-            // statusBox
-            // 
-            this.statusBox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.statusBox.Margin = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusBox.Name = "statusBox";
-            this.statusBox.ReadOnly = true;
-            this.statusBox.Size = new System.Drawing.Size(200, 25);
-            this.statusBox.Text = "Disconnected";
-            // 
-            // motorButton
-            // 
-            this.motorButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.motorButton.BackgroundImage = global::WindowsFormsApplication3.Properties.Resources.parachuteIcon;
-            this.motorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.motorButton.Image = global::WindowsFormsApplication3.Properties.Resources.parachute;
-            this.motorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.motorButton.Name = "motorButton";
-            this.motorButton.Size = new System.Drawing.Size(23, 22);
-            this.motorButton.Click += new System.EventHandler(this.motorButton_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // MotorDownButton
-            // 
-            this.MotorDownButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.MotorDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.MotorDownButton.Image = ((System.Drawing.Image)(resources.GetObject("MotorDownButton.Image")));
-            this.MotorDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.MotorDownButton.Name = "MotorDownButton";
-            this.MotorDownButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.MotorDownButton.Size = new System.Drawing.Size(29, 22);
-            this.MotorDownButton.Text = "700";
-            this.MotorDownButton.Click += new System.EventHandler(this.MotorDownButton_Click);
-            // 
-            // MotorUpButton
-            // 
-            this.MotorUpButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.MotorUpButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.MotorUpButton.Image = ((System.Drawing.Image)(resources.GetObject("MotorUpButton.Image")));
-            this.MotorUpButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.MotorUpButton.Name = "MotorUpButton";
-            this.MotorUpButton.Size = new System.Drawing.Size(35, 22);
-            this.MotorUpButton.Text = "2000";
-            this.MotorUpButton.Click += new System.EventHandler(this.MotorUpButton_Click);
-            // 
-            // parachuteButton
-            // 
-            this.parachuteButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.parachuteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.parachuteButton.Image = ((System.Drawing.Image)(resources.GetObject("parachuteButton.Image")));
-            this.parachuteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.parachuteButton.Name = "parachuteButton";
-            this.parachuteButton.Size = new System.Drawing.Size(64, 22);
-            this.parachuteButton.Text = "parachute";
-            this.parachuteButton.Click += new System.EventHandler(this.parachuteButton_Click);
-            // 
             // tabData
             // 
             this.tabData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabData.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.tabData.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabData.Controls.Add(this.tabPage1);
             this.tabData.Controls.Add(this.tabPage2);
             this.tabData.Location = new System.Drawing.Point(0, 128);
@@ -260,7 +121,6 @@
             this.panelData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(63)))), ((int)(((byte)(148)))));
-            this.panelData.Controls.Add(this.toolStrip1);
             this.panelData.Location = new System.Drawing.Point(-4, 0);
             this.panelData.Name = "panelData";
             this.panelData.Size = new System.Drawing.Size(1343, 519);
@@ -304,7 +164,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::WindowsFormsApplication3.Properties.Resources.GROUND_CONTROL_STATION__1_;
+            this.pictureBox1.BackgroundImage = global::WindowsFormsApplication3.Properties.Resources.GROUND_CONTROL_STATION;
             this.pictureBox1.Location = new System.Drawing.Point(410, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(549, 91);
@@ -337,7 +197,7 @@
             this.baud_combo});
             this.toolStrip6.Location = new System.Drawing.Point(1200, 87);
             this.toolStrip6.Name = "toolStrip6";
-            this.toolStrip6.Size = new System.Drawing.Size(135, 25);
+            this.toolStrip6.Size = new System.Drawing.Size(166, 25);
             this.toolStrip6.TabIndex = 7;
             this.toolStrip6.Text = "toolStrip6";
             // 
@@ -345,6 +205,7 @@
             // 
             this.baud_combo.Items.AddRange(new object[] {
             "9600",
+            "57600",
             "115200"});
             this.baud_combo.Margin = new System.Windows.Forms.Padding(1, 0, 10, 0);
             this.baud_combo.Name = "baud_combo";
@@ -447,15 +308,11 @@
             this.Name = "Form2";
             this.Text = "GCSAstramakara UI";
             this.Load += new System.EventHandler(this.Form2_Load);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.tabData.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.toolStrip8.ResumeLayout(false);
             this.toolStrip8.PerformLayout();
-            this.panelData.ResumeLayout(false);
-            this.panelData.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -480,25 +337,11 @@
         #endregion
 
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton connectButton;
-        private System.Windows.Forms.ToolStripComboBox baudRateComboBox;
-        private System.Windows.Forms.ToolStripComboBox portComboBox;
         private System.IO.Ports.SerialPort serialPort1;
-        private System.Windows.Forms.ToolStripButton motorButton;
-        private System.Windows.Forms.ToolStripProgressBar progressBar;
-        private System.Windows.Forms.ToolStripTextBox statusBox;
         private System.Windows.Forms.TabControl tabData;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel panelData;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Panel panelMap;
-        private System.Windows.Forms.ToolStripButton MotorDownButton;
-        private System.Windows.Forms.ToolStripButton MotorUpButton;
-        private System.Windows.Forms.ToolStripButton parachuteButton;
         private System.Windows.Forms.ToolStrip toolStrip8;
         private System.Windows.Forms.ToolStripTextBox status_bar;
         private System.Windows.Forms.Panel panel1;
@@ -515,5 +358,6 @@
         private System.Windows.Forms.ToolStripButton connect_button;
         private System.Windows.Forms.ToolStripButton parachute_button;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelData;
     }
 }

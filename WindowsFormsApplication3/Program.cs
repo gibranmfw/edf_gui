@@ -13,6 +13,7 @@ namespace WindowsFormsApplication3
 {
     static class Program
     {
+
         /// <summary>
         /// The main entry point for the application.
         /// 
@@ -22,7 +23,8 @@ namespace WindowsFormsApplication3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form2());
+            Form2 mainForm = new Form2();
+            Application.Run(mainForm);
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
+using System.Threading;
 using System.Diagnostics;
 
 namespace WindowsFormsApplication3
@@ -15,18 +16,18 @@ namespace WindowsFormsApplication3
     public partial class Form2 : Form
     {
         private Form1 dataForm = new Form1();
-        private Form3 mapForm = new Form3();
+        private Form3 mapForm;
         private bool isConnected = false;
         private const int gpsConst = 10000000;
         private const string low = "750";
         private const string high = "2000";
-        private bool _continue = false;
-        private String prevESC = "0";
-        private String prevPara = "0";
+        private bool toggleMotor = false;
+        public int test = 12;
 
 
         public Form2()
         {
+            mapForm = new Form3(this.sendData);
             InitializeComponent();
             connect_button.BackgroundImage = global::WindowsFormsApplication3.Properties.Resources.disconnectIcon;
             getAvailablePorts();
@@ -46,10 +47,11 @@ namespace WindowsFormsApplication3
             mapForm.Visible = true;
             mapForm.Dock = DockStyle.Fill;
             dataForm.Dock = DockStyle.Fill;
+            
         }
 
         public delegate void LineReceivedEvent(double ax, double ay, double az);
-        public delegate void LineReceivedEvent2(double latitude, double longitude);
+        public delegate void LineReceivedEvent2(double latitude, double longitude, double altitude, double distance);
 
         public void getAvailablePorts()
         {
@@ -63,12 +65,12 @@ namespace WindowsFormsApplication3
             {
                 if (port_combo.Text.Equals("Port Available") || port_combo.Text.Equals(""))
                 {
-                    status_bar.Text = "Pilih port terlebih dahulu";
+                    status_bar.Text = "Please, choose port value";
 
                 }
                 else if (baud_combo.Text.Equals("Baud Rate") || port_combo.Text.Equals(""))
                 {
-                    status_bar.Text = "Pilih baud rate terlebih dahulu";
+                    status_bar.Text = "Please, choose baud rate value";
                 }
                 else
                 {
@@ -94,11 +96,12 @@ namespace WindowsFormsApplication3
                     parachute_button.Enabled = true;
                     port_combo.Enabled = false;
                     baud_combo.Enabled = false;
+                    mapForm.toggle_connect();
                 }
             }
             catch (UnauthorizedAccessException)
             {
-                status_bar.Text = "Port sudah digunakan oleh perangkat lain";
+                status_bar.Text = "Port is busy, please select other port";
                 //Seandainya port arduino udah diconnect via lain, maka muncul pesan itu
             }
         }
@@ -113,6 +116,7 @@ namespace WindowsFormsApplication3
             baud_combo.Enabled = true;
             status_bar.Text = "Disconnected";
             isConnected = false;
+            mapForm.toggle_connect();
         }
 
         private void connectButton_Click(object sender, EventArgs e)
@@ -156,32 +160,59 @@ namespace WindowsFormsApplication3
             {
                 string[] input = serialPort1.ReadLine().Split(' ');
 
-                if (input.Length == 5)
+                if (input.Length == 3)
                 {
                     double ax;
                     double ay;
                     double az;
-                    if (Double.TryParse(input[0], out ax) && Double.TryParse(input[1], out ay) && Double.TryParse(input[2], out az))
+                    //if (Double.TryParse(input[0], out lat) && Double.TryParse(input[1], out lon) && Double.TryParse(input[2], out alt) && Double.TryParse(input[3], out dis) && Double.TryParse(input[4], out ax) && Double.TryParse(input[5], out ay) && Double.TryParse(input[6], out az))
+                    if(Double.TryParse(input[0].Replace(".",","), out ax) && Double.TryParse(input[1].Replace(".", ","), out ay) && Double.TryParse(input[2].Replace(".", ","), out az))
                     {
-                        double latitude = Double.Parse(input[3]) / gpsConst;
-                        double longitude = Double.Parse(input[4]) / gpsConst;
-                        bool getSignal = true;
-                        if (latitude == 0 && longitude == 0)
-                        {
-                            getSignal = false;
-                        }
+                        //double latitude = Double.Parse(input[3]) / gpsConst;
+                        //double longitude = Double.Parse(input[4]) / gpsConst;
+
+                        //if (lat == 0 && lon == 0)
+                        //{
+                        //    getSignal = false;
+                        //}
+
+                        Debug.Print(ax + "");
+                        Debug.Print(ay + "");
+                        Debug.Print(az + "");
 
                         if (isConnected)
                         {
                             this.BeginInvoke(new LineReceivedEvent(dataForm.LineReceived), ax, ay, az);
-                            if (getSignal)
-                            {
-                                this.BeginInvoke(new LineReceivedEvent2(mapForm.lineReceived), latitude, longitude);
-                            }
+                           // if (getSignal)
+                           // {
+                           //     this.BeginInvoke(new LineReceivedEvent2(mapForm.lineReceived), lat, lon);
+                           // }
                         }
                         else
                         {
                             dataForm.stop3D();
+                        }
+                    }
+                }
+                else if(input.Length == 4)
+                {
+                    double lat;
+                    double lon;
+                    double alt;
+                    double dis;
+
+                    if (!string.IsNullOrEmpty(input[0]) && !string.IsNullOrEmpty(input[1]) && !string.IsNullOrEmpty(input[2]) && !string.IsNullOrEmpty(input[3]) && Double.TryParse(input[0].Replace(".", ","), out lat) && Double.TryParse(input[1].Replace(".", ","), out lon) && Double.TryParse(input[2].Replace(".", ","), out dis) && Double.TryParse(input[3].Replace(".", ","), out alt))
+                    {
+                        bool getSignal = true;
+
+                        if (lat == 0 && lon == 0)
+                        {
+                            getSignal = false;
+                        }
+
+                        if (isConnected && getSignal)
+                        {
+                            this.BeginInvoke(new LineReceivedEvent2(mapForm.lineReceived), lat, lon, alt, dis);
                         }
                     }
                 }
@@ -199,26 +230,26 @@ namespace WindowsFormsApplication3
 
         private void motor_button_Click(object sender, EventArgs e)
         {
-            Form4 form4 = new Form4();
-            form4.parentForm = this;
-            form4.ShowDialog();
+            if(this.toggleMotor)
+            {
+                status_bar.Text = "Kecepatan motor : " + 700;
+                this.toggleMotor = false;
+                this.sendData("0");
+                //motor mati
+            }
+            else
+            {
+                status_bar.Text = "Kecepatan motor : " + 2000;
+                this.toggleMotor = true;
+                this.sendData("1");
+                //motor nyala
+            }
         }
 
-        public void sendtoSerial(String input)
+        public void sendData(string data)
         {
-            serialPort1.Write(input + " " + prevPara);
-            status_bar.Text = "Kecepatan motor : " + input;
-            prevESC = input;
-        }
-
-        private void MotorDownButton_Click(object sender, EventArgs e)
-        {
-            sendtoSerial("700");
-        }
-
-        private void MotorUpButton_Click(object sender, EventArgs e)
-        {
-            sendtoSerial("2000");
+            Debug.Print(data);
+            serialPort1.WriteLine(data);
         }
 
         private void parachuteButton_Click(object sender, EventArgs e)
@@ -242,8 +273,8 @@ namespace WindowsFormsApplication3
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            serialPort1.Write(prevESC + " " + 1);
-            prevPara = "1";
+            status_bar.Text = "Parachute on";
+            this.sendData("2");
         }
 
         private void status_bar_Click(object sender, EventArgs e)
