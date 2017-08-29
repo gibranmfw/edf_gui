@@ -63,3 +63,30 @@ C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplicati
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ArtificialHorizon.vshost.exe
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ArtificialHorizon.pdb
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ArtificialHorizon.xml
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form4.resources
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\Poly.mtl
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\Poly.obj
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\Makara_UI_Render.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\splash.jpg
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\rsz_bhgy.jpg
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\guagebg.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\rsz_1sdaasd.jpg
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\sdaasd.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\revisi logo roket.jpg
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\revisi logo roket.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\revisi logo roket2.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\disconnect.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\disconnectIcon.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\parachuteIcon.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\parachuteIcon.jpg
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\parachute.jpg
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\connectIcon.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\connect.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\zoom_in.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\power_logo.jpg
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\GROUND CONTROL STATION (1).png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\zoom_out.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\zoom_in copy.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\conect.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\conect1.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\button on off2.png

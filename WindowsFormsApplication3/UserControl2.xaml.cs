@@ -15,6 +15,9 @@ using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace WindowsFormsApplication3
 {
@@ -23,7 +26,8 @@ namespace WindowsFormsApplication3
     /// </summary>
     public partial class UserControl2 : UserControl
     {
-        private string MODEL_PATH = @"C:\Users\Dispsiau 2013\Documents\Visual Studio 2015\Projects\WindowsFormsApplication10\WindowsFormsApplication10\Poly.obj";
+        private string model_path = @"C:\Users\Dispsiau 2013\Documents\Visual Studio 2015\Projects\WindowsFormsApplication10\WindowsFormsApplication10\Poly.obj";
+
         private float x_axis = 0;
         private float y_axis = 0;
         private float z_axis = 0;
@@ -35,7 +39,10 @@ namespace WindowsFormsApplication3
         {
             InitializeComponent();
             this.device3D = new ModelVisual3D();
-            this.device3D.Content = Display3d(MODEL_PATH);
+            //string appFolderPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            //model_path = appFolderPath + @"/Resources/Poly.obj";
+            //Debug.Print(model_path1);
+            this.device3D.Content = Display3d(model_path);
             viewPort3d.Children.Add(this.device3D);
 
             //var axis = new Vector3D(20, 20, 1);
@@ -74,9 +81,9 @@ namespace WindowsFormsApplication3
 
         public void updateAxis(float pitch, float yaw, float roll)
         {
-            this.x_axis = pitch;
-            this.y_axis = roll;
-            this.z_axis = yaw;
+            this.x_axis = pitch * -1;
+            this.y_axis = roll * -1;
+            this.z_axis = yaw * -1;
 
             //var axis = new Vector3D(this.x_axis, this.y_axis, this.z_axis);
 

@@ -228,6 +228,7 @@
             this.altitudebox.Size = new System.Drawing.Size(114, 21);
             this.altitudebox.TabIndex = 14;
             this.altitudebox.Text = "ALTITUDE :";
+            this.altitudebox.TextChanged += new System.EventHandler(this.altitudebox_TextChanged);
             // 
             // button3
             // 

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Threading;
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 
 namespace WindowsFormsApplication3
 {
@@ -21,7 +23,6 @@ namespace WindowsFormsApplication3
         private const int gpsConst = 10000000;
         private const string low = "750";
         private const string high = "2000";
-        private bool toggleMotor = false;
         public int test = 12;
 
 
@@ -48,10 +49,12 @@ namespace WindowsFormsApplication3
             mapForm.Dock = DockStyle.Fill;
             dataForm.Dock = DockStyle.Fill;
             
+
         }
 
         public delegate void LineReceivedEvent(double ax, double ay, double az);
         public delegate void LineReceivedEvent2(double latitude, double longitude, double altitude, double distance);
+        public delegate void LineReceivedEvent3(double altitude, double distance);
 
         public void getAvailablePorts()
         {
@@ -213,6 +216,7 @@ namespace WindowsFormsApplication3
                         if (isConnected && getSignal)
                         {
                             this.BeginInvoke(new LineReceivedEvent2(mapForm.lineReceived), lat, lon, alt, dis);
+                            this.BeginInvoke(new LineReceivedEvent3(dataForm.LineReceived2), alt, dis);
                         }
                     }
                 }
@@ -230,25 +234,12 @@ namespace WindowsFormsApplication3
 
         private void motor_button_Click(object sender, EventArgs e)
         {
-            if(this.toggleMotor)
-            {
-                status_bar.Text = "Kecepatan motor : " + 700;
-                this.toggleMotor = false;
-                this.sendData("0");
-                //motor mati
-            }
-            else
-            {
-                status_bar.Text = "Kecepatan motor : " + 2000;
-                this.toggleMotor = true;
-                this.sendData("1");
-                //motor nyala
-            }
+            status_bar.Text = "Toggle motor";
+            this.sendData("2");
         }
 
         public void sendData(string data)
         {
-            Debug.Print(data);
             serialPort1.WriteLine(data);
         }
 
@@ -273,8 +264,8 @@ namespace WindowsFormsApplication3
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            status_bar.Text = "Parachute on";
-            this.sendData("2");
+            status_bar.Text = "parachute on";
+            this.sendData("1");
         }
 
         private void status_bar_Click(object sender, EventArgs e)

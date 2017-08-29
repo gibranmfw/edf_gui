@@ -37,11 +37,17 @@ namespace WindowsFormsApplication3
             showResult(roll, pitch, yaw);
         }
 
+        public void LineReceived2(double altitude, double distance)
+        {
+            chart3.Series["Trajectory"].Points.AddXY(distance, altitude);
+        }
+
         //Menghentikan Model 3D
         public void stop3D()
         {
             rocketobj.stop();
         }
+        
 
         //buat menampilkan data sensor
         private void showResult(float roll, float pitch, float yaw)

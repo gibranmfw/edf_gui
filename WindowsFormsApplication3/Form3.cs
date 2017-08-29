@@ -264,6 +264,8 @@ namespace WindowsFormsApplication3
                     data += end;
                 }
                 this._sendData(data);
+                Form4 messageform = new WindowsFormsApplication3.Form4();
+                messageform.ShowDialog();
             }
         }
 
@@ -272,9 +274,14 @@ namespace WindowsFormsApplication3
             if(is_connected)
             {
                 this._sendData("3");
-                altitudebox.Text = curr_lat + "";
+                textBox5.Text = curr_lat + "";
                 longitudebox.Text = curr_long + "";
             }
+        }
+
+        private void altitudebox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

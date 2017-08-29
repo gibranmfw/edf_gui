@@ -40,6 +40,12 @@ namespace WindowsFormsApplication3
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -53,8 +59,6 @@ namespace WindowsFormsApplication3
             this.aGauge3 = new System.Windows.Forms.AGauge();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
-            this.rocketobj = new WindowsFormsApplication3.UserControl2();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -64,7 +68,13 @@ namespace WindowsFormsApplication3
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.artificialHorizon1 = new ArtificialHorizon.ArtificialHorizon();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.textBox9 = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
+            this.rocketobj = new WindowsFormsApplication3.UserControl2();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -79,6 +89,9 @@ namespace WindowsFormsApplication3
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList1
@@ -293,11 +306,21 @@ namespace WindowsFormsApplication3
             this.chart1.BackColor = System.Drawing.Color.Black;
             this.chart1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.chart1.BorderlineColor = System.Drawing.Color.LightGray;
+            chartArea1.AxisX.InterlacedColor = System.Drawing.Color.White;
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.MediumBlue;
+            chartArea1.AxisX.Title = "Time";
+            chartArea1.AxisX.TitleForeColor = System.Drawing.Color.White;
+            chartArea1.AxisY.InterlacedColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.MediumBlue;
+            chartArea1.AxisY.Title = "Attitude";
+            chartArea1.AxisY.TitleForeColor = System.Drawing.Color.White;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(3, 26);
+            this.chart1.Location = new System.Drawing.Point(4, 3);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
@@ -317,9 +340,13 @@ namespace WindowsFormsApplication3
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(535, 457);
+            this.chart1.Size = new System.Drawing.Size(544, 224);
             this.chart1.TabIndex = 23;
-            this.chart1.Text = "chart1";
+            this.chart1.Text = "Rocket Attitude";
+            title1.ForeColor = System.Drawing.Color.White;
+            title1.Name = "Rocket Attitude";
+            title1.Text = "Rocket Attitude";
+            this.chart1.Titles.Add(title1);
             // 
             // tableLayoutPanel1
             // 
@@ -341,17 +368,6 @@ namespace WindowsFormsApplication3
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(445, 495);
             this.tableLayoutPanel1.TabIndex = 26;
-            // 
-            // elementHost2
-            // 
-            this.elementHost2.BackColor = System.Drawing.Color.DimGray;
-            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost2.Location = new System.Drawing.Point(225, 250);
-            this.elementHost2.Name = "elementHost2";
-            this.elementHost2.Size = new System.Drawing.Size(217, 242);
-            this.elementHost2.TabIndex = 30;
-            this.elementHost2.Text = "elementHost2";
-            this.elementHost2.Child = this.rocketobj;
             // 
             // panel2
             // 
@@ -450,8 +466,9 @@ namespace WindowsFormsApplication3
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.Color.Black;
+            this.splitContainer2.Panel2.Controls.Add(this.panel6);
+            this.splitContainer2.Panel2.Controls.Add(this.panel5);
             this.splitContainer2.Panel2.Controls.Add(this.textBox9);
-            this.splitContainer2.Panel2.Controls.Add(this.chart1);
             this.splitContainer2.Size = new System.Drawing.Size(847, 513);
             this.splitContainer2.SplitterDistance = 280;
             this.splitContainer2.TabIndex = 24;
@@ -479,6 +496,60 @@ namespace WindowsFormsApplication3
             this.textBox8.Text = "Censor Data\r\n";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.chart3);
+            this.panel6.Location = new System.Drawing.Point(3, 265);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(560, 245);
+            this.panel6.TabIndex = 27;
+            // 
+            // chart3
+            // 
+            this.chart3.BackColor = System.Drawing.Color.Black;
+            this.chart3.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.chart3.BorderlineColor = System.Drawing.Color.LightGray;
+            chartArea2.AxisX.InterlacedColor = System.Drawing.Color.White;
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisX.LineColor = System.Drawing.Color.MediumBlue;
+            chartArea2.AxisX.Title = "Distance";
+            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.White;
+            chartArea2.AxisY.InterlacedColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LineColor = System.Drawing.Color.MediumBlue;
+            chartArea2.AxisY.Title = "Altitude";
+            chartArea2.AxisY.TitleForeColor = System.Drawing.Color.White;
+            chartArea2.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart3.Legends.Add(legend2);
+            this.chart3.Location = new System.Drawing.Point(4, 6);
+            this.chart3.Name = "chart3";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Trajectory";
+            series4.Points.Add(dataPoint4);
+            this.chart3.Series.Add(series4);
+            this.chart3.Size = new System.Drawing.Size(544, 224);
+            this.chart3.TabIndex = 24;
+            this.chart3.Text = "Rocket Attitude";
+            title2.ForeColor = System.Drawing.Color.White;
+            title2.Name = "Trajectory";
+            title2.Text = "Trajectory";
+            this.chart3.Titles.Add(title2);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Black;
+            this.panel5.Controls.Add(this.chart1);
+            this.panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.panel5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel5.Location = new System.Drawing.Point(3, 25);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(557, 240);
+            this.panel5.TabIndex = 26;
+            // 
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.Color.White;
@@ -491,6 +562,17 @@ namespace WindowsFormsApplication3
             this.textBox9.TabIndex = 24;
             this.textBox9.Text = "Graph";
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // elementHost2
+            // 
+            this.elementHost2.BackColor = System.Drawing.Color.DimGray;
+            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.elementHost2.Location = new System.Drawing.Point(225, 250);
+            this.elementHost2.Name = "elementHost2";
+            this.elementHost2.Size = new System.Drawing.Size(217, 242);
+            this.elementHost2.TabIndex = 30;
+            this.elementHost2.Text = "elementHost2";
+            this.elementHost2.Child = this.rocketobj;
             // 
             // Form1
             // 
@@ -524,6 +606,9 @@ namespace WindowsFormsApplication3
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -558,6 +643,10 @@ namespace WindowsFormsApplication3
         private System.Windows.Forms.Integration.ElementHost elementHost2;
         private UserControl2 rocketobj;
         private ArtificialHorizon.ArtificialHorizon artificialHorizon1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
     }
 }
 
