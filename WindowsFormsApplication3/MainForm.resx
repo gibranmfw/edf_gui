@@ -117,4 +117,59 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="serialPort1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>454, 17</value>
+  </metadata>
+  <metadata name="toolStrip8.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>227, 56</value>
+  </metadata>
+  <metadata name="toolStrip7.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 56</value>
+  </metadata>
+  <metadata name="toolStrip6.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="toolStrip5.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>878, 17</value>
+  </metadata>
+  <metadata name="toolStrip4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>773, 17</value>
+  </metadata>
+  <metadata name="toolStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>668, 17</value>
+  </metadata>
+  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>563, 17</value>
+  </metadata>
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>81</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAAAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
+        AAD///8B////Af///wH///8B////Af///wFE2/8HQ9r/aRDP/osg0f8L////Af///wH///8B////Af//
+        /wH///8B////Af///wH///8B////Af///wH///8BRNr/P0Ta/t8Dzf/rEND/Uf///wH///8B////Af//
+        /wH///8B////Af///wH///8B////AZjr/zeb7P8PQ9v/GUTZ/99E2v//AM3//wbO/vUX0v8neOT/D3jl
+        /zf///8B////Af///wH///8B////Af///wGZ6/+fmev/n3Dj/0NE2v/rRNr//wDN//8Ezf/7Ptf+WXfk
+        /5935P+f////Af///wH///8B////Af///wH///8Bmev+p5nr//+045vzzNgj2bbXQfuVphv/n6QP85PD
+        efl35P//d+T+p////wH///8B////Af///wH///8B////AZnr/qeZ6/3/xd5e/9/XAP/f1wD/m5YA/5uW
+        AP+RslP/d+P8/3fk/qf///8B////Af///wH///8B////Af///wGY6/+Jnunr/83cQf/f1wD/39cA/5uW
+        AP+blgD/l6kz/3/d3f934/+J////Af///wH///8B////Af///wH///8BmOz/G6bnz8/S2i7/39cA/9/X
+        AP+blgD/m5YA/5yjGv+H1LbPeOP/G////wH///8B////Af///wH///8B////Af///wHT2ixL29gM9dzX
+        Cf/R2zL/k6tD/5maD/+emwT9pqcPVf///wH///8B////Af///wH///8B////Af///wH///8B39YAU9/X
+        APnF3lv/oujc/3vf7f+OunX/nJcA/6CaAFv///8B////Af///wH///8B////Af///wH///8B////Ad7W
+        AHPf1wD/rOW5/5nr//935P//gNzh/5uWAP+moQCL////Af///wH///8B////Af///wH///8B////Af//
+        /wHf1gBZ39cA+bzge/+Z6vz/d+T+/4nFl/+clwD/o58AZ////wH///8B////Af///wH///8B////Af//
+        /wH///8B3tcAJ9/XAM/e1wL/0doy/5OvUP+alwX/oJsA47CqADn///8B////Af///wH///8B////Af//
+        /wH///8B////Ad7ZAAXe1wBp39cA/9/XAP+blgD/m5YA/6ulAIm6swAJ////Af///wH///8B////Af//
+        /wH///8B////Af///wH///8B////Ad/XAJPf1wDznJcA+6ehALP///8B////Af///wH///8B////Af//
+        /wH///8B////Af///wH///8B////Af///wHg2AAT39cAh6mjAKuuqAAZ////Af///wH///8B////Af//
+        /wH///8BAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA
+        //8AAP//AAD//w==
+</value>
+  </data>
 </root>

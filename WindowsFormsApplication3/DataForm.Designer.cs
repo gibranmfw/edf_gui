@@ -2,7 +2,7 @@
 
 namespace WindowsFormsApplication3
 {
-    partial class Form1
+    partial class DataForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace WindowsFormsApplication3
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataForm));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -48,17 +48,19 @@ namespace WindowsFormsApplication3
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.rollBox = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.yawBox = new System.Windows.Forms.TextBox();
+            this.pitchBox = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.aGauge2 = new System.Windows.Forms.AGauge();
-            this.aGauge1 = new System.Windows.Forms.AGauge();
-            this.aGauge3 = new System.Windows.Forms.AGauge();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.yawGauge = new System.Windows.Forms.AGauge();
+            this.rollGauge = new System.Windows.Forms.AGauge();
+            this.pitchGauge = new System.Windows.Forms.AGauge();
+            this.attitudeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.rocketHost = new System.Windows.Forms.Integration.ElementHost();
+            this.rocketobj = new WindowsFormsApplication3.UserControl2();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -66,16 +68,14 @@ namespace WindowsFormsApplication3
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.artificialHorizon1 = new ArtificialHorizon.ArtificialHorizon();
+            this.artificialHorizon = new ArtificialHorizon.ArtificialHorizon();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.trajectoryChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
-            this.rocketobj = new WindowsFormsApplication3.UserControl2();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attitudeChart)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -90,7 +90,7 @@ namespace WindowsFormsApplication3
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trajectoryChart)).BeginInit();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,14 +100,14 @@ namespace WindowsFormsApplication3
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "Makara_UI_Render.png");
             // 
-            // textBox2
+            // rollBox
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBox2.Location = new System.Drawing.Point(0, 208);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(215, 31);
-            this.textBox2.TabIndex = 10;
+            this.rollBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.rollBox.Location = new System.Drawing.Point(0, 208);
+            this.rollBox.Multiline = true;
+            this.rollBox.Name = "rollBox";
+            this.rollBox.Size = new System.Drawing.Size(215, 31);
+            this.rollBox.TabIndex = 10;
             // 
             // textBox3
             // 
@@ -122,23 +122,23 @@ namespace WindowsFormsApplication3
             this.textBox3.Text = "Roll";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox4
+            // yawBox
             // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBox4.Location = new System.Drawing.Point(0, 208);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(214, 31);
-            this.textBox4.TabIndex = 12;
+            this.yawBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.yawBox.Location = new System.Drawing.Point(0, 208);
+            this.yawBox.Multiline = true;
+            this.yawBox.Name = "yawBox";
+            this.yawBox.Size = new System.Drawing.Size(214, 31);
+            this.yawBox.TabIndex = 12;
             // 
-            // textBox5
+            // pitchBox
             // 
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBox5.Location = new System.Drawing.Point(0, 212);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(216, 30);
-            this.textBox5.TabIndex = 14;
+            this.pitchBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pitchBox.Location = new System.Drawing.Point(0, 212);
+            this.pitchBox.Multiline = true;
+            this.pitchBox.Name = "pitchBox";
+            this.pitchBox.Size = new System.Drawing.Size(216, 30);
+            this.pitchBox.TabIndex = 14;
             // 
             // textBox6
             // 
@@ -166,146 +166,146 @@ namespace WindowsFormsApplication3
             this.textBox7.Text = "Pitch";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // aGauge2
+            // yawGauge
             // 
-            this.aGauge2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.yawGauge.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.aGauge2.BackColor = System.Drawing.Color.Gainsboro;
-            this.aGauge2.BaseArcColor = System.Drawing.Color.Gray;
-            this.aGauge2.BaseArcRadius = 80;
-            this.aGauge2.BaseArcStart = 135;
-            this.aGauge2.BaseArcSweep = 270;
-            this.aGauge2.BaseArcWidth = 2;
-            this.aGauge2.Center = new System.Drawing.Point(100, 100);
-            this.aGauge2.Location = new System.Drawing.Point(3, 26);
-            this.aGauge2.MaxValue = 360F;
-            this.aGauge2.MinValue = -360F;
-            this.aGauge2.Name = "aGauge2";
-            this.aGauge2.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
-            this.aGauge2.NeedleColor2 = System.Drawing.Color.DimGray;
-            this.aGauge2.NeedleRadius = 80;
-            this.aGauge2.NeedleType = System.Windows.Forms.NeedleType.Advance;
-            this.aGauge2.NeedleWidth = 2;
-            this.aGauge2.ScaleLinesInterColor = System.Drawing.Color.Black;
-            this.aGauge2.ScaleLinesInterInnerRadius = 73;
-            this.aGauge2.ScaleLinesInterOuterRadius = 80;
-            this.aGauge2.ScaleLinesInterWidth = 1;
-            this.aGauge2.ScaleLinesMajorColor = System.Drawing.Color.Black;
-            this.aGauge2.ScaleLinesMajorInnerRadius = 70;
-            this.aGauge2.ScaleLinesMajorOuterRadius = 80;
-            this.aGauge2.ScaleLinesMajorStepValue = 90F;
-            this.aGauge2.ScaleLinesMajorWidth = 2;
-            this.aGauge2.ScaleLinesMinorColor = System.Drawing.Color.Gray;
-            this.aGauge2.ScaleLinesMinorInnerRadius = 75;
-            this.aGauge2.ScaleLinesMinorOuterRadius = 80;
-            this.aGauge2.ScaleLinesMinorTicks = 9;
-            this.aGauge2.ScaleLinesMinorWidth = 1;
-            this.aGauge2.ScaleNumbersColor = System.Drawing.Color.Black;
-            this.aGauge2.ScaleNumbersFormat = null;
-            this.aGauge2.ScaleNumbersRadius = 95;
-            this.aGauge2.ScaleNumbersRotation = 0;
-            this.aGauge2.ScaleNumbersStartScaleLine = 0;
-            this.aGauge2.ScaleNumbersStepScaleLines = 1;
-            this.aGauge2.Size = new System.Drawing.Size(210, 187);
-            this.aGauge2.TabIndex = 13;
-            this.aGauge2.Text = "aGauge2";
-            this.aGauge2.Value = 0F;
+            this.yawGauge.BackColor = System.Drawing.Color.Gainsboro;
+            this.yawGauge.BaseArcColor = System.Drawing.Color.Gray;
+            this.yawGauge.BaseArcRadius = 80;
+            this.yawGauge.BaseArcStart = 135;
+            this.yawGauge.BaseArcSweep = 270;
+            this.yawGauge.BaseArcWidth = 2;
+            this.yawGauge.Center = new System.Drawing.Point(100, 100);
+            this.yawGauge.Location = new System.Drawing.Point(3, 26);
+            this.yawGauge.MaxValue = 360F;
+            this.yawGauge.MinValue = -360F;
+            this.yawGauge.Name = "yawGauge";
+            this.yawGauge.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
+            this.yawGauge.NeedleColor2 = System.Drawing.Color.DimGray;
+            this.yawGauge.NeedleRadius = 80;
+            this.yawGauge.NeedleType = System.Windows.Forms.NeedleType.Advance;
+            this.yawGauge.NeedleWidth = 2;
+            this.yawGauge.ScaleLinesInterColor = System.Drawing.Color.Black;
+            this.yawGauge.ScaleLinesInterInnerRadius = 73;
+            this.yawGauge.ScaleLinesInterOuterRadius = 80;
+            this.yawGauge.ScaleLinesInterWidth = 1;
+            this.yawGauge.ScaleLinesMajorColor = System.Drawing.Color.Black;
+            this.yawGauge.ScaleLinesMajorInnerRadius = 70;
+            this.yawGauge.ScaleLinesMajorOuterRadius = 80;
+            this.yawGauge.ScaleLinesMajorStepValue = 90F;
+            this.yawGauge.ScaleLinesMajorWidth = 2;
+            this.yawGauge.ScaleLinesMinorColor = System.Drawing.Color.Gray;
+            this.yawGauge.ScaleLinesMinorInnerRadius = 75;
+            this.yawGauge.ScaleLinesMinorOuterRadius = 80;
+            this.yawGauge.ScaleLinesMinorTicks = 9;
+            this.yawGauge.ScaleLinesMinorWidth = 1;
+            this.yawGauge.ScaleNumbersColor = System.Drawing.Color.Black;
+            this.yawGauge.ScaleNumbersFormat = null;
+            this.yawGauge.ScaleNumbersRadius = 95;
+            this.yawGauge.ScaleNumbersRotation = 0;
+            this.yawGauge.ScaleNumbersStartScaleLine = 0;
+            this.yawGauge.ScaleNumbersStepScaleLines = 1;
+            this.yawGauge.Size = new System.Drawing.Size(210, 187);
+            this.yawGauge.TabIndex = 13;
+            this.yawGauge.Text = "aGauge2";
+            this.yawGauge.Value = 0F;
             // 
-            // aGauge1
+            // rollGauge
             // 
-            this.aGauge1.BackColor = System.Drawing.Color.Gainsboro;
-            this.aGauge1.BaseArcColor = System.Drawing.Color.Gray;
-            this.aGauge1.BaseArcRadius = 80;
-            this.aGauge1.BaseArcStart = 135;
-            this.aGauge1.BaseArcSweep = 270;
-            this.aGauge1.BaseArcWidth = 2;
-            this.aGauge1.Center = new System.Drawing.Point(100, 100);
-            this.aGauge1.Location = new System.Drawing.Point(3, 26);
-            this.aGauge1.MaxValue = 360F;
-            this.aGauge1.MinValue = -360F;
-            this.aGauge1.Name = "aGauge1";
-            this.aGauge1.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
-            this.aGauge1.NeedleColor2 = System.Drawing.Color.DimGray;
-            this.aGauge1.NeedleRadius = 80;
-            this.aGauge1.NeedleType = System.Windows.Forms.NeedleType.Advance;
-            this.aGauge1.NeedleWidth = 2;
-            this.aGauge1.ScaleLinesInterColor = System.Drawing.Color.Black;
-            this.aGauge1.ScaleLinesInterInnerRadius = 73;
-            this.aGauge1.ScaleLinesInterOuterRadius = 80;
-            this.aGauge1.ScaleLinesInterWidth = 1;
-            this.aGauge1.ScaleLinesMajorColor = System.Drawing.Color.Black;
-            this.aGauge1.ScaleLinesMajorInnerRadius = 70;
-            this.aGauge1.ScaleLinesMajorOuterRadius = 80;
-            this.aGauge1.ScaleLinesMajorStepValue = 90F;
-            this.aGauge1.ScaleLinesMajorWidth = 2;
-            this.aGauge1.ScaleLinesMinorColor = System.Drawing.Color.Gray;
-            this.aGauge1.ScaleLinesMinorInnerRadius = 75;
-            this.aGauge1.ScaleLinesMinorOuterRadius = 80;
-            this.aGauge1.ScaleLinesMinorTicks = 9;
-            this.aGauge1.ScaleLinesMinorWidth = 1;
-            this.aGauge1.ScaleNumbersColor = System.Drawing.Color.Black;
-            this.aGauge1.ScaleNumbersFormat = null;
-            this.aGauge1.ScaleNumbersRadius = 95;
-            this.aGauge1.ScaleNumbersRotation = 0;
-            this.aGauge1.ScaleNumbersStartScaleLine = 0;
-            this.aGauge1.ScaleNumbersStepScaleLines = 1;
-            this.aGauge1.Size = new System.Drawing.Size(206, 174);
-            this.aGauge1.TabIndex = 21;
-            this.aGauge1.Text = "aGauge1";
-            this.aGauge1.Value = 0F;
+            this.rollGauge.BackColor = System.Drawing.Color.Gainsboro;
+            this.rollGauge.BaseArcColor = System.Drawing.Color.Gray;
+            this.rollGauge.BaseArcRadius = 80;
+            this.rollGauge.BaseArcStart = 135;
+            this.rollGauge.BaseArcSweep = 270;
+            this.rollGauge.BaseArcWidth = 2;
+            this.rollGauge.Center = new System.Drawing.Point(100, 100);
+            this.rollGauge.Location = new System.Drawing.Point(3, 26);
+            this.rollGauge.MaxValue = 360F;
+            this.rollGauge.MinValue = -360F;
+            this.rollGauge.Name = "rollGauge";
+            this.rollGauge.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
+            this.rollGauge.NeedleColor2 = System.Drawing.Color.DimGray;
+            this.rollGauge.NeedleRadius = 80;
+            this.rollGauge.NeedleType = System.Windows.Forms.NeedleType.Advance;
+            this.rollGauge.NeedleWidth = 2;
+            this.rollGauge.ScaleLinesInterColor = System.Drawing.Color.Black;
+            this.rollGauge.ScaleLinesInterInnerRadius = 73;
+            this.rollGauge.ScaleLinesInterOuterRadius = 80;
+            this.rollGauge.ScaleLinesInterWidth = 1;
+            this.rollGauge.ScaleLinesMajorColor = System.Drawing.Color.Black;
+            this.rollGauge.ScaleLinesMajorInnerRadius = 70;
+            this.rollGauge.ScaleLinesMajorOuterRadius = 80;
+            this.rollGauge.ScaleLinesMajorStepValue = 90F;
+            this.rollGauge.ScaleLinesMajorWidth = 2;
+            this.rollGauge.ScaleLinesMinorColor = System.Drawing.Color.Gray;
+            this.rollGauge.ScaleLinesMinorInnerRadius = 75;
+            this.rollGauge.ScaleLinesMinorOuterRadius = 80;
+            this.rollGauge.ScaleLinesMinorTicks = 9;
+            this.rollGauge.ScaleLinesMinorWidth = 1;
+            this.rollGauge.ScaleNumbersColor = System.Drawing.Color.Black;
+            this.rollGauge.ScaleNumbersFormat = null;
+            this.rollGauge.ScaleNumbersRadius = 95;
+            this.rollGauge.ScaleNumbersRotation = 0;
+            this.rollGauge.ScaleNumbersStartScaleLine = 0;
+            this.rollGauge.ScaleNumbersStepScaleLines = 1;
+            this.rollGauge.Size = new System.Drawing.Size(206, 174);
+            this.rollGauge.TabIndex = 21;
+            this.rollGauge.Text = "aGauge1";
+            this.rollGauge.Value = 0F;
             // 
-            // aGauge3
+            // pitchGauge
             // 
-            this.aGauge3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pitchGauge.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.aGauge3.BackColor = System.Drawing.Color.Gainsboro;
-            this.aGauge3.BaseArcColor = System.Drawing.Color.Gray;
-            this.aGauge3.BaseArcRadius = 80;
-            this.aGauge3.BaseArcStart = 135;
-            this.aGauge3.BaseArcSweep = 270;
-            this.aGauge3.BaseArcWidth = 2;
-            this.aGauge3.Center = new System.Drawing.Point(100, 100);
-            this.aGauge3.Location = new System.Drawing.Point(4, 26);
-            this.aGauge3.MaxValue = 360F;
-            this.aGauge3.MinValue = -360F;
-            this.aGauge3.Name = "aGauge3";
-            this.aGauge3.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
-            this.aGauge3.NeedleColor2 = System.Drawing.Color.DimGray;
-            this.aGauge3.NeedleRadius = 80;
-            this.aGauge3.NeedleType = System.Windows.Forms.NeedleType.Advance;
-            this.aGauge3.NeedleWidth = 2;
-            this.aGauge3.ScaleLinesInterColor = System.Drawing.Color.Black;
-            this.aGauge3.ScaleLinesInterInnerRadius = 73;
-            this.aGauge3.ScaleLinesInterOuterRadius = 80;
-            this.aGauge3.ScaleLinesInterWidth = 1;
-            this.aGauge3.ScaleLinesMajorColor = System.Drawing.Color.Black;
-            this.aGauge3.ScaleLinesMajorInnerRadius = 70;
-            this.aGauge3.ScaleLinesMajorOuterRadius = 80;
-            this.aGauge3.ScaleLinesMajorStepValue = 90F;
-            this.aGauge3.ScaleLinesMajorWidth = 2;
-            this.aGauge3.ScaleLinesMinorColor = System.Drawing.Color.Gray;
-            this.aGauge3.ScaleLinesMinorInnerRadius = 75;
-            this.aGauge3.ScaleLinesMinorOuterRadius = 80;
-            this.aGauge3.ScaleLinesMinorTicks = 9;
-            this.aGauge3.ScaleLinesMinorWidth = 1;
-            this.aGauge3.ScaleNumbersColor = System.Drawing.Color.Black;
-            this.aGauge3.ScaleNumbersFormat = null;
-            this.aGauge3.ScaleNumbersRadius = 95;
-            this.aGauge3.ScaleNumbersRotation = 0;
-            this.aGauge3.ScaleNumbersStartScaleLine = 0;
-            this.aGauge3.ScaleNumbersStepScaleLines = 1;
-            this.aGauge3.Size = new System.Drawing.Size(206, 182);
-            this.aGauge3.TabIndex = 22;
-            this.aGauge3.Text = "aGauge3";
-            this.aGauge3.Value = 0F;
+            this.pitchGauge.BackColor = System.Drawing.Color.Gainsboro;
+            this.pitchGauge.BaseArcColor = System.Drawing.Color.Gray;
+            this.pitchGauge.BaseArcRadius = 80;
+            this.pitchGauge.BaseArcStart = 135;
+            this.pitchGauge.BaseArcSweep = 270;
+            this.pitchGauge.BaseArcWidth = 2;
+            this.pitchGauge.Center = new System.Drawing.Point(100, 100);
+            this.pitchGauge.Location = new System.Drawing.Point(4, 26);
+            this.pitchGauge.MaxValue = 360F;
+            this.pitchGauge.MinValue = -360F;
+            this.pitchGauge.Name = "pitchGauge";
+            this.pitchGauge.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Gray;
+            this.pitchGauge.NeedleColor2 = System.Drawing.Color.DimGray;
+            this.pitchGauge.NeedleRadius = 80;
+            this.pitchGauge.NeedleType = System.Windows.Forms.NeedleType.Advance;
+            this.pitchGauge.NeedleWidth = 2;
+            this.pitchGauge.ScaleLinesInterColor = System.Drawing.Color.Black;
+            this.pitchGauge.ScaleLinesInterInnerRadius = 73;
+            this.pitchGauge.ScaleLinesInterOuterRadius = 80;
+            this.pitchGauge.ScaleLinesInterWidth = 1;
+            this.pitchGauge.ScaleLinesMajorColor = System.Drawing.Color.Black;
+            this.pitchGauge.ScaleLinesMajorInnerRadius = 70;
+            this.pitchGauge.ScaleLinesMajorOuterRadius = 80;
+            this.pitchGauge.ScaleLinesMajorStepValue = 90F;
+            this.pitchGauge.ScaleLinesMajorWidth = 2;
+            this.pitchGauge.ScaleLinesMinorColor = System.Drawing.Color.Gray;
+            this.pitchGauge.ScaleLinesMinorInnerRadius = 75;
+            this.pitchGauge.ScaleLinesMinorOuterRadius = 80;
+            this.pitchGauge.ScaleLinesMinorTicks = 9;
+            this.pitchGauge.ScaleLinesMinorWidth = 1;
+            this.pitchGauge.ScaleNumbersColor = System.Drawing.Color.Black;
+            this.pitchGauge.ScaleNumbersFormat = null;
+            this.pitchGauge.ScaleNumbersRadius = 95;
+            this.pitchGauge.ScaleNumbersRotation = 0;
+            this.pitchGauge.ScaleNumbersStartScaleLine = 0;
+            this.pitchGauge.ScaleNumbersStepScaleLines = 1;
+            this.pitchGauge.Size = new System.Drawing.Size(206, 182);
+            this.pitchGauge.TabIndex = 22;
+            this.pitchGauge.Text = "aGauge3";
+            this.pitchGauge.Value = 0F;
             // 
-            // chart1
+            // attitudeChart
             // 
-            this.chart1.BackColor = System.Drawing.Color.Black;
-            this.chart1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.chart1.BorderlineColor = System.Drawing.Color.LightGray;
+            this.attitudeChart.BackColor = System.Drawing.Color.Black;
+            this.attitudeChart.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.attitudeChart.BorderlineColor = System.Drawing.Color.LightGray;
             chartArea1.AxisX.InterlacedColor = System.Drawing.Color.White;
             chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea1.AxisX.LineColor = System.Drawing.Color.MediumBlue;
@@ -317,11 +317,11 @@ namespace WindowsFormsApplication3
             chartArea1.AxisY.Title = "Attitude";
             chartArea1.AxisY.TitleForeColor = System.Drawing.Color.White;
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.attitudeChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(4, 3);
-            this.chart1.Name = "chart1";
+            this.attitudeChart.Legends.Add(legend1);
+            this.attitudeChart.Location = new System.Drawing.Point(4, 3);
+            this.attitudeChart.Name = "attitudeChart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series1.Legend = "Legend1";
@@ -337,16 +337,16 @@ namespace WindowsFormsApplication3
             series3.Legend = "Legend1";
             series3.Name = "Yaw";
             series3.Points.Add(dataPoint3);
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(544, 224);
-            this.chart1.TabIndex = 23;
-            this.chart1.Text = "Rocket Attitude";
+            this.attitudeChart.Series.Add(series1);
+            this.attitudeChart.Series.Add(series2);
+            this.attitudeChart.Series.Add(series3);
+            this.attitudeChart.Size = new System.Drawing.Size(544, 224);
+            this.attitudeChart.TabIndex = 23;
+            this.attitudeChart.Text = "Rocket Attitude";
             title1.ForeColor = System.Drawing.Color.White;
             title1.Name = "Rocket Attitude";
             title1.Text = "Rocket Attitude";
-            this.chart1.Titles.Add(title1);
+            this.attitudeChart.Titles.Add(title1);
             // 
             // tableLayoutPanel1
             // 
@@ -355,7 +355,7 @@ namespace WindowsFormsApplication3
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.elementHost2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.rocketHost, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 1);
@@ -369,13 +369,24 @@ namespace WindowsFormsApplication3
             this.tableLayoutPanel1.Size = new System.Drawing.Size(445, 495);
             this.tableLayoutPanel1.TabIndex = 26;
             // 
+            // rocketHost
+            // 
+            this.rocketHost.BackColor = System.Drawing.Color.DimGray;
+            this.rocketHost.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rocketHost.Location = new System.Drawing.Point(225, 250);
+            this.rocketHost.Name = "rocketHost";
+            this.rocketHost.Size = new System.Drawing.Size(217, 242);
+            this.rocketHost.TabIndex = 30;
+            this.rocketHost.Text = "elementHost2";
+            this.rocketHost.Child = this.rocketobj;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.aGauge1);
+            this.panel2.Controls.Add(this.rollBox);
+            this.panel2.Controls.Add(this.rollGauge);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(225, 3);
             this.panel2.Name = "panel2";
@@ -386,8 +397,8 @@ namespace WindowsFormsApplication3
             // 
             this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.textBox4);
-            this.panel3.Controls.Add(this.aGauge2);
+            this.panel3.Controls.Add(this.yawBox);
+            this.panel3.Controls.Add(this.yawGauge);
             this.panel3.Controls.Add(this.textBox6);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
@@ -399,8 +410,8 @@ namespace WindowsFormsApplication3
             // 
             this.panel4.BackColor = System.Drawing.Color.Gainsboro;
             this.panel4.Controls.Add(this.textBox7);
-            this.panel4.Controls.Add(this.textBox5);
-            this.panel4.Controls.Add(this.aGauge3);
+            this.panel4.Controls.Add(this.pitchBox);
+            this.panel4.Controls.Add(this.pitchGauge);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 250);
             this.panel4.Name = "panel4";
@@ -460,7 +471,7 @@ namespace WindowsFormsApplication3
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.BackColor = System.Drawing.Color.Black;
-            this.splitContainer2.Panel1.Controls.Add(this.artificialHorizon1);
+            this.splitContainer2.Panel1.Controls.Add(this.artificialHorizon);
             this.splitContainer2.Panel1.Controls.Add(this.textBox8);
             // 
             // splitContainer2.Panel2
@@ -473,15 +484,15 @@ namespace WindowsFormsApplication3
             this.splitContainer2.SplitterDistance = 280;
             this.splitContainer2.TabIndex = 24;
             // 
-            // artificialHorizon1
+            // artificialHorizon
             // 
-            this.artificialHorizon1.AutoScroll = true;
-            this.artificialHorizon1.Location = new System.Drawing.Point(22, 51);
-            this.artificialHorizon1.Name = "artificialHorizon1";
-            this.artificialHorizon1.pitch_angle = 0D;
-            this.artificialHorizon1.roll_angle = 0D;
-            this.artificialHorizon1.Size = new System.Drawing.Size(232, 432);
-            this.artificialHorizon1.TabIndex = 30;
+            this.artificialHorizon.AutoScroll = true;
+            this.artificialHorizon.Location = new System.Drawing.Point(22, 51);
+            this.artificialHorizon.Name = "artificialHorizon";
+            this.artificialHorizon.pitch_angle = 0D;
+            this.artificialHorizon.roll_angle = 0D;
+            this.artificialHorizon.Size = new System.Drawing.Size(232, 432);
+            this.artificialHorizon.TabIndex = 30;
             // 
             // textBox8
             // 
@@ -498,17 +509,17 @@ namespace WindowsFormsApplication3
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.chart3);
+            this.panel6.Controls.Add(this.trajectoryChart);
             this.panel6.Location = new System.Drawing.Point(3, 265);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(560, 245);
             this.panel6.TabIndex = 27;
             // 
-            // chart3
+            // trajectoryChart
             // 
-            this.chart3.BackColor = System.Drawing.Color.Black;
-            this.chart3.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.chart3.BorderlineColor = System.Drawing.Color.LightGray;
+            this.trajectoryChart.BackColor = System.Drawing.Color.Black;
+            this.trajectoryChart.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.trajectoryChart.BorderlineColor = System.Drawing.Color.LightGray;
             chartArea2.AxisX.InterlacedColor = System.Drawing.Color.White;
             chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea2.AxisX.LineColor = System.Drawing.Color.MediumBlue;
@@ -520,29 +531,29 @@ namespace WindowsFormsApplication3
             chartArea2.AxisY.Title = "Altitude";
             chartArea2.AxisY.TitleForeColor = System.Drawing.Color.White;
             chartArea2.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea2);
+            this.trajectoryChart.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
-            this.chart3.Legends.Add(legend2);
-            this.chart3.Location = new System.Drawing.Point(4, 6);
-            this.chart3.Name = "chart3";
+            this.trajectoryChart.Legends.Add(legend2);
+            this.trajectoryChart.Location = new System.Drawing.Point(4, 6);
+            this.trajectoryChart.Name = "trajectoryChart";
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series4.Legend = "Legend1";
             series4.Name = "Trajectory";
             series4.Points.Add(dataPoint4);
-            this.chart3.Series.Add(series4);
-            this.chart3.Size = new System.Drawing.Size(544, 224);
-            this.chart3.TabIndex = 24;
-            this.chart3.Text = "Rocket Attitude";
+            this.trajectoryChart.Series.Add(series4);
+            this.trajectoryChart.Size = new System.Drawing.Size(544, 224);
+            this.trajectoryChart.TabIndex = 24;
+            this.trajectoryChart.Text = "Rocket Attitude";
             title2.ForeColor = System.Drawing.Color.White;
             title2.Name = "Trajectory";
             title2.Text = "Trajectory";
-            this.chart3.Titles.Add(title2);
+            this.trajectoryChart.Titles.Add(title2);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Controls.Add(this.chart1);
+            this.panel5.Controls.Add(this.attitudeChart);
             this.panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.panel5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel5.Location = new System.Drawing.Point(3, 25);
@@ -563,18 +574,7 @@ namespace WindowsFormsApplication3
             this.textBox9.Text = "Graph";
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // elementHost2
-            // 
-            this.elementHost2.BackColor = System.Drawing.Color.DimGray;
-            this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost2.Location = new System.Drawing.Point(225, 250);
-            this.elementHost2.Name = "elementHost2";
-            this.elementHost2.Size = new System.Drawing.Size(217, 242);
-            this.elementHost2.TabIndex = 30;
-            this.elementHost2.Text = "elementHost2";
-            this.elementHost2.Child = this.rocketobj;
-            // 
-            // Form1
+            // DataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -582,10 +582,10 @@ namespace WindowsFormsApplication3
             this.ClientSize = new System.Drawing.Size(1294, 642);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "DataForm";
             this.Text = "ATRAMAKARA UI";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attitudeChart)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -607,7 +607,7 @@ namespace WindowsFormsApplication3
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trajectoryChart)).EndInit();
             this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -620,16 +620,16 @@ namespace WindowsFormsApplication3
         #endregion
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox rollBox;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.AGauge aGauge2;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox yawBox;
+        private System.Windows.Forms.AGauge yawGauge;
+        private System.Windows.Forms.TextBox pitchBox;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.AGauge aGauge1;
-        private System.Windows.Forms.AGauge aGauge3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.AGauge rollGauge;
+        private System.Windows.Forms.AGauge pitchGauge;
+        private System.Windows.Forms.DataVisualization.Charting.Chart attitudeChart;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
@@ -640,13 +640,13 @@ namespace WindowsFormsApplication3
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Integration.ElementHost elementHost2;
+        private System.Windows.Forms.Integration.ElementHost rocketHost;
         private UserControl2 rocketobj;
-        private ArtificialHorizon.ArtificialHorizon artificialHorizon1;
+        private ArtificialHorizon.ArtificialHorizon artificialHorizon;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart trajectoryChart;
     }
 }
 

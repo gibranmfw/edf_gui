@@ -378,14 +378,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WindowsFormsApplication3.exe" size="1696256">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WindowsFormsApplication3.exe" size="1694208">
       <assemblyIdentity name="WindowsFormsApplication3" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UPTfHUcLjwUKMK9baQ3/lAql+mV7aGpIUr18rGDi6/M=</dsig:DigestValue>
+        <dsig:DigestValue>d41N5NtdGNYIkxMI8x01zAAMZq+NMGFO+khQizvKsI0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

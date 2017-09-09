@@ -10,26 +10,30 @@ using System.Windows.Forms;
 using GMap.NET;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
-using System.Text.RegularExpressions;
-using GMap.NET.MapProviders;
-using System.Diagnostics;
-using System.Runtime.Serialization;
 
 namespace WindowsFormsApplication3
 {
-
-    public partial class Form3 : Form
+    /// <summary>
+    /// Module ini berisi definisi - definisi
+    /// fungsi yang ada pada MapForm untuk 
+    /// menampilkan peta menggunakan gMap (google)
+    /// 
+    /// note:
+    /// dalam menggunakan gMap harus terhubung
+    /// dengan jaringan internet
+    /// </summary>
+    public partial class MapForm : Form
     {
-        public Form2 parentForm { get; set; }
+        public MainForm parentForm { get; set; }
         GMapOverlay markerOverlay = new GMapOverlay("markers");
-        private int num = 1;
         GMapRoute lineLayer = new GMapRoute("single_line");
         public readonly Action<string> _sendData;
         public double curr_lat = 0;
         public double curr_long = 0;
+        private int num = 1;
         public bool is_connected = false;
 
-        public Form3(Action<string> sendData)
+        public MapForm(Action<string> sendData)
         {
             try
             {
@@ -38,37 +42,61 @@ namespace WindowsFormsApplication3
             }
             catch
             {
+                ///jika tidak terhubung dengan internet
                 MessageBox.Show("No internet connection avaible, going to CacheOnly mode.",
                       "GMap.NET - Demo.WindowsForms", MessageBoxButtons.OK,
                       MessageBoxIcon.Warning);
             }
+
             this._sendData = sendData;
             InitializeComponent();
+            initializeGmap();
+
+            ///menampilkan koordinat sekarang 
+            latitudebox.Text = curr_lat + "";
+            longitudebox.Text = curr_long + "";
+        }
+
+        /// <summary>
+        /// Method yang bertugas untuk
+        /// setting awal dari komponen gMap
+        /// </summary>
+        private void initializeGmap()
+        {
             gMap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gMap.DragButton = MouseButtons.Left;
             gMap.SetPositionByKeywords("jakarta");
-            
             gMap.ShowCenter = false;
             lineLayer.Stroke = new Pen(Brushes.Black, 2);
             markerOverlay.Routes.Add(lineLayer);
             gMap.Overlays.Add(markerOverlay);
-            latitudebox.Text = curr_lat + "";
-            longitudebox.Text = curr_long + "";
-            //gMap.Overlays.Add(markerOverlay);
         }
 
+        /// <summary>
+        /// Method yang bertugas untuk menambah marker
+        /// pada gMap (menambah point, atau penunjuk lokasi)
+        /// </summary>
+        /// <param name="position">posisi sesuai dengan koordinate</param>
+        /// <param name="type">tipe marker yang ingin digunakan</param>
+        /// <returns>indeks marker baru sesuai dengan yang ada di list markerOverlay.Markers</returns>
         private int addMarker(PointLatLng position, GMarkerGoogleType type)
         {
             GMapMarker marker = new GMarkerGoogle(position, type);
             marker.ToolTipText = num + "";
-            //markerOverlay.Markers.Add(marker);
             markerOverlay.Markers.Add(marker);
             gMap.Overlays.Add(markerOverlay);
             return markerOverlay.Markers.Count - 1;
 
         }
 
+        /// <summary>
+        /// Method untuk menambahkan penghubung / rute
+        /// dari satu marker ke marker lain
+        /// 
+        /// dalam konteks ini menambahkan penghubung dari marker
+        /// paling terakhir dengan marker yang baru ditambah
+        /// </summary>
         private void addRoute()
         {
             int markersSize = markerOverlay.Markers.Count();
@@ -76,44 +104,71 @@ namespace WindowsFormsApplication3
             gMap.UpdateRouteLocalPosition(lineLayer);
         }
 
+        /// <summary>
+        /// toggle variable is_connected
+        /// </summary>
         public void toggle_connect()
         {
             is_connected = !(is_connected || false);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Method untuk menghandle ketika
+        /// user mengklik button zoomIn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void zoomInButton_Click(object sender, EventArgs e)
         {
             if(gMap.Zoom < gMap.MaxZoom)
             {
                 gMap.Zoom++;
                 if (gMap.Zoom == gMap.MaxZoom)
                 {
-                    button1.Enabled = false;
+                    zoomInButton.Enabled = false;
                 }
                 else
                 {
-                    button2.Enabled = true;
+                    zoomOutButtom.Enabled = true;
                 }
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Method untuk menghandle ketika user
+        /// mengklik button zoomOut
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void zoomOutButton_Click(object sender, EventArgs e)
         {
             if(gMap.Zoom > gMap.MinZoom)
             {
                 gMap.Zoom--;
                 if (gMap.Zoom == gMap.MinZoom)
                 {
-                    button2.Enabled = false;
+                    zoomOutButtom.Enabled = false;
                 }
                 else
                 {
-                    button1.Enabled = true;
+                    zoomInButton.Enabled = true;
                 }
             }
         }
         
-
+        /// <summary>
+        /// Method untuk menghandle ketika user
+        /// mengklik gMap dengan mouse
+        ///
+        /// Tombol kanan pada mouse berfungsi
+        /// jika user ingin menambah waypoint baru
+        /// 
+        /// User mengklik kanan mouse, lalu method ini
+        /// akan menyimpan koordinat titik yang di klik
+        /// dan akan disimpan sebagai waypoint
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void gMap_MouseDown(object sender, MouseEventArgs e)
         {
             if(is_connected)
@@ -127,27 +182,36 @@ namespace WindowsFormsApplication3
                             int idxmarker = addMarker(new PointLatLng(lat, lng), GMarkerGoogleType.red_pushpin);
                             addRoute();
                             updateDistance();
-                            dataGridView2.Rows.Add(num, 0, lat, lng, "Delete");
+                            waypointDataGrid.Rows.Add(num, 0, lat, lng, "Delete");
                             num++;
-                            Form6 form6 = new Form6(this.set_altitude);
-                            form6.ShowDialog();
+
+                            AltForm altForm = new AltForm(this.set_altitude);
+                            altForm.ShowDialog();
                         }
                         break;
                 }
             }
         }
 
+        /// <summary>
+        /// Method untuk mengupdate nilai yang ada
+        /// pada distanceBox
+        /// </summary>
         public void updateDistance()
         {
             distanceBox.Text = lineLayer.Distance + " km";
         }
 
+        /// <summary>
+        /// Method yang akan menghandle data
+        /// yang dikirim dari MainForm (form utama)
+        /// </summary>
+        /// <param name="latitude">data latitude roket</param>
+        /// <param name="longitude">data longitude roket</param>
+        /// <param name="altitude">data altitude roket</param>
+        /// <param name="distance">data jarak tempuh roket</param>
         public void lineReceived(double latitude, double longitude, double altitude, double distance)
         {
-            //if(markerOverlay.Markers.Count() > 0 && markerOverlay.Markers[markerOverlay.Markers.Count() - 1].ToolTipText == "rocket")
-            //{
-            //    markerOverlay.Markers.RemoveAt(markerOverlay.Markers.Count() - 1);
-            //}
             PointLatLng newPosition = new GMap.NET.PointLatLng(latitude, longitude);
             gMap.Position = newPosition;
             int index = containRocket();
@@ -161,12 +225,19 @@ namespace WindowsFormsApplication3
                 markerOverlay.Markers[markerOverlay.Markers.Count() - 1].ToolTipText = "rocket";
             }
 
+            ///update textbox dan variable yang diperlukan
             rocketbox.Text = distance + " M";
-            textBox5.Text = altitude + " M";
+            altitudeBox.Text = altitude + " M";
             curr_lat = latitude;
             curr_long = longitude;
         }
 
+        /// <summary>
+        /// Method yang akan mengecek apakah
+        /// pada list Markers ada penanda
+        /// untuk roket atau tidak
+        /// </summary>
+        /// <returns>index selain -1 jika ada, -1 jika tidak ditemukan</returns>
         public int containRocket()
         {
             for(int ii = 0; ii < markerOverlay.Markers.Count(); ii++)
@@ -180,11 +251,15 @@ namespace WindowsFormsApplication3
             return -1;
         }
 
+        /// <summary>
+        /// Method yang bertugas untuk mengupdate
+        /// column Nums yang ada pada data grid
+        /// </summary>
         public void updateData()
         {
-            for (int i = 0; i < dataGridView2.Rows.Count; i++)
+            for (int i = 0; i < waypointDataGrid.Rows.Count; i++)
             {
-                dataGridView2.Rows[i].Cells[0].Value = i + 1;
+                waypointDataGrid.Rows[i].Cells[0].Value = i + 1;
             }
             for(int i = 1; i < markerOverlay.Markers.Count; i++)
             {
@@ -192,34 +267,32 @@ namespace WindowsFormsApplication3
             }
         }
 
-        public void updateWaypointwithGrid(DataGridViewRow currrow)
-        {
-            
-        }
-
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void markerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Method untuk mengubah nilai altitude
+        /// </summary>
+        /// <param name="alt">nilai altitude baru</param>
         public void set_altitude(double alt)
         {
-            int endrowindex = dataGridView2.Rows.Count - 2;
-            dataGridView2.Rows[endrowindex].Cells[1].Value = alt;
+            int endrowindex = waypointDataGrid.Rows.Count - 2;
+            waypointDataGrid.Rows[endrowindex].Cells[1].Value = alt;
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        /// <summary>
+        /// Method yang menghandle ketika
+        /// user mengklik button delete yang ada di dataGrid
+        /// 
+        /// maka program akan menghapus row tersebut
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void waypointDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            ///jika mengklik button delete
             if (is_connected && e.ColumnIndex == 4)
             {
                 try
                 {
-                    dataGridView2.Rows.RemoveAt(e.RowIndex);
+                    waypointDataGrid.Rows.RemoveAt(e.RowIndex);
                     markerOverlay.Markers.RemoveAt(e.RowIndex + 1);
                     lineLayer.Points.RemoveAt(e.RowIndex);
                     gMap.UpdateRouteLocalPosition(lineLayer);
@@ -234,17 +307,22 @@ namespace WindowsFormsApplication3
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Method untuk menghandle
+        /// ketika user mengklik button write
+        /// 
+        /// program maka akan mengirimkan semua data
+        /// yang ada di waypointDataGrid dan mengirimkan nya
+        /// ke form utama untuk dikirim ke roket
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void writeButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if(dataGridView2.Rows.Count > 1)
+            if(waypointDataGrid.Rows.Count > 1)
             {
                 string data = "";
-                for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                for (int i = 0; i < waypointDataGrid.Rows.Count - 1; i++)
                 {
                     string end = " "; 
                     for (int j = 1; j < 4; j++)
@@ -255,33 +333,31 @@ namespace WindowsFormsApplication3
                             temp = "";
                         }
 
-                        data += dataGridView2.Rows[i].Cells[j].Value + temp;
+                        data += waypointDataGrid.Rows[i].Cells[j].Value + temp;
                     }
-                    if (i == dataGridView2.Rows.Count - 1)
+                    if (i == waypointDataGrid.Rows.Count - 1)
                     {
                         end = "";
                     }
                     data += end;
                 }
                 this._sendData(data);
-                Form4 messageform = new WindowsFormsApplication3.Form4();
-                messageform.ShowDialog();
             }
         }
 
+        /// <summary>
+        /// Method untuk mengupdate koordinat awal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void homebutton_Click(object sender, EventArgs e)
         {
             if(is_connected)
             {
                 this._sendData("3");
-                textBox5.Text = curr_lat + "";
+                altitudeBox.Text = curr_lat + "";
                 longitudebox.Text = curr_long + "";
             }
-        }
-
-        private void altitudebox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

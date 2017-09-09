@@ -23,7 +23,7 @@ namespace WindowsFormsApplication3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form2 mainForm = new Form2();
+            MainForm mainForm = new MainForm();
             Application.Run(mainForm);
         }
     }

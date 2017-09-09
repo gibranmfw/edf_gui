@@ -42,13 +42,9 @@ C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplicati
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3_MarkupCompile.cache
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3_MarkupCompile.lref
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.g.resources
-C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form1.resources
-C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form2.resources
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.csproj.GenerateResource.Cache
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe.manifest
-C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form3.resources
-C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form6.resources
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\HelixToolkit.dll
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\HelixToolkit.Wpf.dll
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\HelixToolkit.pdb
@@ -63,7 +59,6 @@ C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplicati
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ArtificialHorizon.vshost.exe
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ArtificialHorizon.pdb
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ArtificialHorizon.xml
-C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Form4.resources
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\Poly.mtl
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\Poly.obj
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\Makara_UI_Render.png
@@ -90,3 +85,7 @@ C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplicati
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\conect.png
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\conect1.png
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\button on off2.png
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.DataForm.resources
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.MainForm.resources
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.MapForm.resources
+C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.AltForm.resources

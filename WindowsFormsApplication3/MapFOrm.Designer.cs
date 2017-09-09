@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication3
 {
-    partial class Form3
+    partial class MapForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MapForm));
             this.gMap = new GMap.NET.WindowsForms.GMapControl();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.zoomOutButtom = new System.Windows.Forms.Button();
+            this.zoomInButton = new System.Windows.Forms.Button();
+            this.waypointDataGrid = new System.Windows.Forms.DataGridView();
             this.Header = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.altitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.latitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,9 +44,9 @@
             this.distanceBox = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.altitudebox = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.altitudeBox = new System.Windows.Forms.TextBox();
+            this.altLabel = new System.Windows.Forms.TextBox();
+            this.writeButton = new System.Windows.Forms.Button();
             this.rocketbox = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.homebutton = new System.Windows.Forms.Button();
@@ -55,7 +55,7 @@
             this.longitudebox = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waypointDataGrid)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,46 +100,46 @@
             this.textBox1.Text = "Map";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button2
+            // zoomOutButtom
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Image = global::WindowsFormsApplication3.Properties.Resources.zoom_out;
-            this.button2.Location = new System.Drawing.Point(61, 380);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(54, 47);
-            this.button2.TabIndex = 2;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.zoomOutButtom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.zoomOutButtom.Image = global::WindowsFormsApplication3.Properties.Resources.zoom_out;
+            this.zoomOutButtom.Location = new System.Drawing.Point(61, 380);
+            this.zoomOutButtom.Name = "zoomOutButtom";
+            this.zoomOutButtom.Size = new System.Drawing.Size(54, 47);
+            this.zoomOutButtom.TabIndex = 2;
+            this.zoomOutButtom.UseVisualStyleBackColor = true;
+            this.zoomOutButtom.Click += new System.EventHandler(this.zoomOutButton_Click);
             // 
-            // button1
+            // zoomInButton
             // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(61, 327);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(54, 47);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.zoomInButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.zoomInButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.zoomInButton.ForeColor = System.Drawing.Color.White;
+            this.zoomInButton.Image = ((System.Drawing.Image)(resources.GetObject("zoomInButton.Image")));
+            this.zoomInButton.Location = new System.Drawing.Point(61, 327);
+            this.zoomInButton.Name = "zoomInButton";
+            this.zoomInButton.Size = new System.Drawing.Size(54, 47);
+            this.zoomInButton.TabIndex = 1;
+            this.zoomInButton.UseVisualStyleBackColor = true;
+            this.zoomInButton.Click += new System.EventHandler(this.zoomInButton_Click);
             // 
-            // dataGridView2
+            // waypointDataGrid
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(61)))), ((int)(((byte)(148)))));
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.waypointDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(61)))), ((int)(((byte)(148)))));
+            this.waypointDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.waypointDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.waypointDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Header,
             this.altitude,
             this.latitude,
             this.longitude,
             this.Command});
-            this.dataGridView2.Location = new System.Drawing.Point(121, 449);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(542, 116);
-            this.dataGridView2.TabIndex = 7;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.waypointDataGrid.Location = new System.Drawing.Point(121, 449);
+            this.waypointDataGrid.Name = "waypointDataGrid";
+            this.waypointDataGrid.Size = new System.Drawing.Size(542, 116);
+            this.waypointDataGrid.TabIndex = 7;
+            this.waypointDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.waypointDataGrid_CellContentClick);
             // 
             // Header
             // 
@@ -180,7 +180,6 @@
             this.textBox2.Size = new System.Drawing.Size(114, 21);
             this.textBox2.TabIndex = 8;
             this.textBox2.Text = "mission distance :";
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // distanceBox
             // 
@@ -200,9 +199,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(61)))), ((int)(((byte)(148)))));
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.altitudebox);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.altitudeBox);
+            this.panel1.Controls.Add(this.altLabel);
+            this.panel1.Controls.Add(this.writeButton);
             this.panel1.Controls.Add(this.rocketbox);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.textBox2);
@@ -212,34 +211,33 @@
             this.panel1.Size = new System.Drawing.Size(542, 168);
             this.panel1.TabIndex = 11;
             // 
-            // textBox5
+            // altitudeBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(382, 53);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(131, 21);
-            this.textBox5.TabIndex = 15;
+            this.altitudeBox.Location = new System.Drawing.Point(382, 53);
+            this.altitudeBox.Name = "altitudeBox";
+            this.altitudeBox.ReadOnly = true;
+            this.altitudeBox.Size = new System.Drawing.Size(131, 21);
+            this.altitudeBox.TabIndex = 15;
             // 
-            // altitudebox
+            // altLabel
             // 
-            this.altitudebox.Location = new System.Drawing.Point(382, 16);
-            this.altitudebox.Name = "altitudebox";
-            this.altitudebox.ReadOnly = true;
-            this.altitudebox.Size = new System.Drawing.Size(114, 21);
-            this.altitudebox.TabIndex = 14;
-            this.altitudebox.Text = "ALTITUDE :";
-            this.altitudebox.TextChanged += new System.EventHandler(this.altitudebox_TextChanged);
+            this.altLabel.Location = new System.Drawing.Point(382, 16);
+            this.altLabel.Name = "altLabel";
+            this.altLabel.ReadOnly = true;
+            this.altLabel.Size = new System.Drawing.Size(114, 21);
+            this.altLabel.TabIndex = 14;
+            this.altLabel.Text = "ALTITUDE :";
             // 
-            // button3
+            // writeButton
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 16);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(85, 67);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "write waypoint";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.writeButton.BackColor = System.Drawing.Color.White;
+            this.writeButton.Location = new System.Drawing.Point(3, 16);
+            this.writeButton.Name = "writeButton";
+            this.writeButton.Size = new System.Drawing.Size(85, 67);
+            this.writeButton.TabIndex = 10;
+            this.writeButton.Text = "write waypoint";
+            this.writeButton.UseVisualStyleBackColor = false;
+            this.writeButton.Click += new System.EventHandler(this.writeButton_Click);
             // 
             // rocketbox
             // 
@@ -318,7 +316,7 @@
             this.textBox9.TabIndex = 21;
             this.textBox9.Text = "Home Position";
             // 
-            // Form3
+            // MapForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -331,15 +329,15 @@
             this.Controls.Add(this.latitudebox);
             this.Controls.Add(this.homebutton);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.waypointDataGrid);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.zoomOutButtom);
+            this.Controls.Add(this.zoomInButton);
             this.Controls.Add(this.gMap);
             this.Font = new System.Drawing.Font("Stencil", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "Form3";
+            this.Name = "MapForm";
             this.Text = "Form3";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waypointDataGrid)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -350,19 +348,19 @@
         #endregion
 
         private GMap.NET.WindowsForms.GMapControl gMap;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button zoomInButton;
+        private System.Windows.Forms.Button zoomOutButtom;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView waypointDataGrid;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox distanceBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button writeButton;
         private System.Windows.Forms.TextBox rocketbox;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox altitudebox;
+        private System.Windows.Forms.TextBox altitudeBox;
+        private System.Windows.Forms.TextBox altLabel;
         private System.Windows.Forms.Button homebutton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Header;
         private System.Windows.Forms.DataGridViewTextBoxColumn altitude;

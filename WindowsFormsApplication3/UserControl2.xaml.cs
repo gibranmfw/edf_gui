@@ -6,66 +6,63 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Diagnostics;
-using System.IO;
 using System.Reflection;
 using System.Diagnostics;
 
 namespace WindowsFormsApplication3
 {
     /// <summary>
-    /// Interaction logic for UserControl2.xaml
+    /// Berisi perintah-perintah
+    /// untuk mengendalikan model3D
     /// </summary>
     public partial class UserControl2 : UserControl
     {
-        private string model_path = @"C:\Users\Dispsiau 2013\Documents\Visual Studio 2015\Projects\WindowsFormsApplication10\WindowsFormsApplication10\Poly.obj";
-
         private float x_axis = 0;
         private float y_axis = 0;
         private float z_axis = 0;
         private float rotate = 50;
         private ModelVisual3D device3D;
 
-
         public UserControl2()
         {
             InitializeComponent();
             this.device3D = new ModelVisual3D();
-            //string appFolderPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            //model_path = appFolderPath + @"/Resources/Poly.obj";
-            //Debug.Print(model_path1);
+            //string model_path = @"C:\Users\Dispsiau 2013\Documents\Visual Studio 2015\Projects\WindowsFormsApplication10\WindowsFormsApplication10\Poly.obj";
+          
+            string appFolderPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            string model_path = appFolderPath + @"/Resources/Poly.obj";
             this.device3D.Content = Display3d(model_path);
             viewPort3d.Children.Add(this.device3D);
-
-            //var axis = new Vector3D(20, 20, 1);
-            //var angle = 180;
-
-            //var matrix = this.device3D.Transform.Value;
-            //matrix.Rotate(new Quaternion(axis, angle));
-
-            //this.device3D.Transform = new MatrixTransform3D(matrix);
         }
 
+        /// <summary>
+        /// Method untuk menghentikan 
+        /// pergerakan dari model3D
+        /// </summary>
         public void stop()
         {
             this.rotate = 0;
         }
 
+        /// <summary>
+        /// Method untuk menggerakkan model3D
+        /// sesuai dengan data attitude roket
+        /// </summary>
+        /// <param name="pitch">data pitch roket</param>
+        /// <param name="yaw">data yaw roket</param>
+        /// <param name="roll">data roll roket</param>
         public void move(float pitch, float yaw, float roll)
         {
             updateAxis(pitch, yaw, roll);
             rotateModel();
         }
 
-        public void rotateModel()
+        /// <summary>
+        /// Method untuk merotasi roket
+        /// </summary>
+        private void rotateModel()
         {
             RotateTransform3D rt = new RotateTransform3D();
             AxisAngleRotation3D ar = new AxisAngleRotation3D();
@@ -79,20 +76,26 @@ namespace WindowsFormsApplication3
             this.device3D.Transform = tg;
         }
 
-        public void updateAxis(float pitch, float yaw, float roll)
+        /// <summary>
+        /// Method untuk mengubah nilai dari
+        /// pitch, yaw, roll
+        /// </summary>
+        /// <param name="pitch">Data pitch roket</param>
+        /// <param name="yaw">Data yaw roket</param>
+        /// <param name="roll">Data roll roket</param>
+        private void updateAxis(float pitch, float yaw, float roll)
         {
             this.x_axis = pitch * -1;
             this.y_axis = roll * -1;
             this.z_axis = yaw * -1;
-
-            //var axis = new Vector3D(this.x_axis, this.y_axis, this.z_axis);
-
-            //var matrix = this.device3D.Transform.Value;
-            //matrix.Rotate(new Quaternion(axis, this.rotate));
-
-            //this.device3D.Transform = new MatrixTransform3D(matrix);
         }
 
+        /// <summary>
+        /// Method untuk menggenerate
+        /// model3D
+        /// </summary>
+        /// <param name="model">objek model3D yg diinginkan</param>
+        /// <returns>hasil model3D yang udah di generate</returns>
         private Model3D Display3d(string model)
         {
             Model3D device = null;
@@ -114,5 +117,9 @@ namespace WindowsFormsApplication3
             }
             return device;
         }
+
+        ///To Do:
+        ///Membuat method untuk meng-set nilai rotasi sesuai yg diinginkan
+        ///atau gk mengubah dari 0 (stlh di stop) kembali ke nilai awal
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication3
 {
-    partial class Form2
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.tabData = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -114,7 +114,6 @@
             this.status_bar.ReadOnly = true;
             this.status_bar.Size = new System.Drawing.Size(200, 25);
             this.status_bar.Text = "Disconnected";
-            this.status_bar.Click += new System.EventHandler(this.status_bar_Click);
             // 
             // panelData
             // 
@@ -160,7 +159,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1485, 177);
             this.panel1.TabIndex = 6;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -294,7 +292,7 @@
             this.connect_button.Size = new System.Drawing.Size(23, 22);
             this.connect_button.Click += new System.EventHandler(this.connect_button_Click);
             // 
-            // Form2
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -305,9 +303,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(1300, 681);
-            this.Name = "Form2";
+            this.Name = "MainForm";
             this.Text = "GCSAstramakara UI";
-            this.Load += new System.EventHandler(this.Form2_Load);
             this.tabData.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
