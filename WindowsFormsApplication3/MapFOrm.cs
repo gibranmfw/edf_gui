@@ -71,6 +71,7 @@ namespace WindowsFormsApplication3
             lineLayer.Stroke = new Pen(Brushes.Black, 2);
             markerOverlay.Routes.Add(lineLayer);
             gMap.Overlays.Add(markerOverlay);
+            addMarker(new PointLatLng(0, 0), GMarkerGoogleType.blue_dot);
         }
 
         /// <summary>

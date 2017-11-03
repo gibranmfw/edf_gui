@@ -55,8 +55,6 @@ C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplicati
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\UserControl2.baml
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication3.application
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.application
-C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ArtificialHorizon.exe
-C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ArtificialHorizon.vshost.exe
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ArtificialHorizon.pdb
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\ArtificialHorizon.xml
 C:\Users\Dispsiau 2013\Documents\TRUI - Team AURORA UI\GUI\WindowsFormsApplication3\WindowsFormsApplication3\bin\Debug\Resources\Poly.mtl
